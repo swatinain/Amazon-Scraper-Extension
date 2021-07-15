@@ -1,0 +1,25 @@
+{
+    "manifest_version":2,
+    "name":"Amazon Scraper",
+    "description":"Send alert when price of an item drops",
+    "version":"1.0.0",
+
+    "content_scripts":[
+        {
+            "matches":["<all_urls>"],
+            "js":["angular.min.js","angular-ui-router.min.js","jquery-3.6.0.min.js","popup.js","content.js"]
+        }
+    ],
+    "background":{
+        "scripts":["angular.min.js","angular-ui-router.min.js","jquery-3.6.0.min.js","popup.js","background.js"]
+    },
+    "browser_action":{
+        "default_popup":"popup.html"
+    },
+    "content_security_policy": "script-src 'self' https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js https://www.gstatic.com/ https://*.firebaseio.com https://www.googleapis.com; object-src 'self'",
+    "permissions":[
+        "activeTab",
+        "tabs",
+        "storage"
+       ]
+}
